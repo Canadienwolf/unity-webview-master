@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 
 public class GPSPermission : MonoBehaviour
@@ -9,7 +10,11 @@ public class GPSPermission : MonoBehaviour
 
     IEnumerator Start()
     {
-        Debug.Log("dingy1");
+        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+        {
+            Permission.RequestUserPermission(Permission.FineLocation);
+            Permission.RequestUserPermission(Permission.CoarseLocation);
+        }
 
         // First, check if user has location service enabled
         if (!Input.location.isEnabledByUser)
