@@ -1,4 +1,0 @@
-#Fri Jul 02 10:21:12 CEST 2021
-base.0=C\:\\Users\\frank\\Downloads\\unity-webview-master3\\unity-webview-master\\sample\\Temp\\gradleOut\\launcher\\build\\intermediates\\dex\\release\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
