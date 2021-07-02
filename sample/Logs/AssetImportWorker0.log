@@ -855,3 +855,28 @@ System memory in use after: 35.4 MB.
 Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1622.
 Total: 3.310600 ms (FindLiveObjects: 0.254600 ms CreateObjectMapping: 0.144400 ms MarkObjects: 2.887400 ms  DeleteObjects: 0.022300 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 889.813505 seconds.
+  path: Assets/Scenes/GPS Scene.unity
+  artifactKey: Guid(7819ce9190d20cc47838b7dbdde666f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GPS Scene.unity using Guid(7819ce9190d20cc47838b7dbdde666f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6982ec043cafa8fe9e48f3f03883bf56') in 0.006856 seconds
+  Import took 0.011302 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 103.407008 seconds.
+  path: Assets/Plugins/Editor
+  artifactKey: Guid(5415c2bc4488c42739b36767bc7f8c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Editor using Guid(5415c2bc4488c42739b36767bc7f8c83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2caef31139dc115464d8b56656af901e') in 0.016552 seconds
+  Import took 0.020188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.727276 seconds.
+  path: Assets/Plugins/Android
+  artifactKey: Guid(dbc2200488e7d45189f9a082caf5d637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Android using Guid(dbc2200488e7d45189f9a082caf5d637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7132ba130eb36095e4263e579ae594b') in 0.015578 seconds
+  Import took 0.019313 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
