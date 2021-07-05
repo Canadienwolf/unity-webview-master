@@ -56,7 +56,6 @@
     <Compile Include="Assets\Scripts\SampleWebView.cs" />
     <Compile Include="Assets\Scripts\GPSPermission.cs" />
     <Compile Include="Assets\Scripts\SampleCustomHeader.cs" />
-    <Compile Include="Assets\Scripts\LoadTextureFromURL.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
