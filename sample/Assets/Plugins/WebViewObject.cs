@@ -146,16 +146,6 @@ public class WebViewObject : MonoBehaviour
     IntPtr webView;
 #endif
 
-    void Awake()
-    {
-        alertDialogEnabled = true;
-        scrollBounceEnabled = true;
-        mMarginLeftComputed = -9999;
-        mMarginTopComputed = -9999;
-        mMarginRightComputed = -9999;
-        mMarginBottomComputed = -9999;
-    }
-
     public bool IsKeyboardVisible
     {
         get
@@ -494,94 +484,6 @@ public class WebViewObject : MonoBehaviour
 #elif UNITY_ANDROID
         if (webView == null)
             return;
-#endif
-
-        mMarginLeft = left;
-        mMarginTop = top;
-        mMarginRight = right;
-        mMarginBottom = bottom;
-        mMarginRelative = relative;
-        float ml, mt, mr, mb;
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
-        //TODO: UNSUPPORTED
-#elif UNITY_WEBPLAYER || UNITY_WEBGL
-        ml = left;
-        mt = top;
-        mr = right;
-        mb = bottom;
-#elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-        ml = left;
-        mt = top;
-        mr = right;
-        mb = bottom;
-#elif UNITY_IPHONE
-        if (relative)
-        {
-            float w = (float)Screen.width;
-            float h = (float)Screen.height;
-            ml = left / w;
-            mt = top / h;
-            mr = right / w;
-            mb = bottom / h;
-        }
-        else
-        {
-            ml = left;
-            mt = top;
-            mr = right;
-            mb = bottom;
-        }
-#elif UNITY_ANDROID
-        if (relative)
-        {
-            float w = (float)Screen.width;
-            float h = (float)Screen.height;
-            int iw = Screen.currentResolution.width;
-            int ih = Screen.currentResolution.height;
-            ml = left / w * iw;
-            mt = top / h * ih;
-            mr = right / w * iw;
-            mb = AdjustBottomMargin((int)(bottom / h * ih));
-        }
-        else
-        {
-            ml = left;
-            mt = top;
-            mr = right;
-            mb = AdjustBottomMargin(bottom);
-        }
-#endif
-        bool r = relative;
-
-        if (ml == mMarginLeftComputed
-            && mt == mMarginTopComputed
-            && mr == mMarginRightComputed
-            && mb == mMarginBottomComputed
-            && r == mMarginRelativeComputed)
-        {
-            return;
-        }
-        mMarginLeftComputed = ml;
-        mMarginTopComputed = mt;
-        mMarginRightComputed = mr;
-        mMarginBottomComputed = mb;
-        mMarginRelativeComputed = r;
-
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_LINUX
-        //TODO: UNSUPPORTED
-#elif UNITY_WEBPLAYER
-        Application.ExternalCall("unityWebView.setMargins", name, (int)ml, (int)mt, (int)mr, (int)mb);
-#elif UNITY_WEBGL && !UNITY_EDITOR
-        _gree_unity_webview_setMargins(name, (int)ml, (int)mt, (int)mr, (int)mb);
-#elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
-        int width = (int)(Screen.width - (ml + mr));
-        int height = (int)(Screen.height - (mb + mt));
-        _CWebViewPlugin_SetRect(webView, width, height);
-        rect = new Rect(left, bottom, width, height);
-#elif UNITY_IPHONE
-        _CWebViewPlugin_SetMargins(webView, ml, mt, mr, mb, r);
-#elif UNITY_ANDROID
-        webView.Call("SetMargins", (int)ml, (int)mt, (int)mr, (int)mb);
 #endif
     }
 

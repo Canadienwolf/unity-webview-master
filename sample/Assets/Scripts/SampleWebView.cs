@@ -30,12 +30,15 @@ public class SampleWebView : MonoBehaviour
     public string Url;
     public Text status;
     WebViewObject webViewObject;
-
-    public Button button1;
+    public Button button05;
 
     IEnumerator Start()
     {
+        
         webViewObject = (new GameObject("WebViewObject")).AddComponent<WebViewObject>();
+        
+        
+
         webViewObject.Init(
             cb: (msg) =>
             {
@@ -146,8 +149,7 @@ public class SampleWebView : MonoBehaviour
         // cf. https://github.com/gree/unity-webview/pull/570
         // Add BASIC authentication feature (Android and iOS with WKWebView only) by takeh1k0 · Pull Request #570 · gree/unity-webview
         //webViewObject.SetBasicAuthInfo("id", "password");
-
-        webViewObject.SetMargins(5, 100, 5, Screen.height / 4);
+        
         webViewObject.SetTextZoom(100);  // android only. cf. https://stackoverflow.com/questions/21647641/android-webview-set-font-size-system-default/47017410#47017410
         webViewObject.SetVisibility(true);
         
