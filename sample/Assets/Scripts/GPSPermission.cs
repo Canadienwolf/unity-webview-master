@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class GPSPermission : MonoBehaviour
 {
-    
+    public string TextureURL = "";
+    void Awake()
+    {
+        StartCoroutine(DownloadImage(TextureURL));
+    }
 
     IEnumerator Start()
     {
@@ -53,5 +59,14 @@ public class GPSPermission : MonoBehaviour
 
         // Stop service if there is no need to query location updates continuously
         Input.location.Stop();
+    }
+    IEnumerator DownloadImage(string MediaUrl)
+    {
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(MediaUrl);
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+            Debug.Log(request.error);
+        else
+            this.gameObject.GetComponent<RawImage>().texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
     }
 }
