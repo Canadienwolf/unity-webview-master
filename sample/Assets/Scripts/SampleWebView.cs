@@ -158,7 +158,9 @@ public class SampleWebView : MonoBehaviour
         if (Url.StartsWith("http")) 
         {
             webViewObject.LoadURL(Url.Replace(" ", "%20"));
+            print("http now! "+ Url+" adress");
         } else {
+            print("not http!");
             var exts = new string[]{
                 ".jpg",
                 ".js",
