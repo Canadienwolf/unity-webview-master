@@ -149,3 +149,5 @@ fmod_editor.log
 /Assets/Temp.meta
 /UserSettings/EditorUserSettings.asset
 GL6_StairsToVettan/UserSettings/EditorUserSettings.asset
+
+sample/Logs/shadercompiler-UnityShaderCompiler.exe0.log
